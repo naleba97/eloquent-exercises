@@ -203,3 +203,30 @@ var recursiveNth = function recursive(list, index){
 }
 console.log(recursiveNth(arrToList(["1","2","3","4","5"]), 4));
 */
+
+//ch. 4 deep comparison
+/*
+var deepComp = function deepEqual(obj1, obj2){
+  if(typeof obj1 == "object" && typeof obj2 == "object"
+      && obj1 != null && obj2 != null){
+    for(var prop in obj1){
+      if(obj2[prop]!=undefined){
+        if(!deepEqual(obj1[prop], obj2[prop])){
+          return false;
+        }
+      }
+      else {
+        return false;
+      }
+    }
+  }
+  else if(obj1 != obj2){
+    return false;
+  }
+  return true;
+}
+var prius = {color: {red: "nice", blue: "cool"}, make: 2006};
+var pencil = {color: {red: "nice", blue: "brown"}, make: 2006};
+console.log(deepComp(prius, pencil));
+*/
+
