@@ -275,3 +275,46 @@ function averageAgeDiff(array){
 }
 console.log(averageAgeDiff(motherChildAncestry));
 */
+
+//ch. 5 average life expectancy
+/*
+function averageCenturyAge(array, century){
+  var filteredList = ancestry.filter(function(person){
+    if(Math.ceil(person.died/100) == century){
+      return true;
+    }
+  });
+  var centuryAge = filteredList.reduce(function(a, b){
+    return a + (b.died-b.born);
+    }
+  , 0)
+  return centuryAge/filteredList.length;
+}
+for(var i = 16; i <= 21; i++){
+  console.log(i + ": " + averageCenturyAge(ancestry, i));
+}
+*/
+
+//ch. 5 every and then some
+/*
+function some(array, condition){
+  for(var element in array){
+    if(condition(array[element]))
+      return true;
+  }
+  return false;
+}
+
+function every(array, condition){
+  for(var element in array){
+    if(!condition(array[element])){
+      return false;
+    }
+  }
+  return true;
+}
+console.log(every([NaN, "poke", NaN], isNaN));
+console.log(every([2, "Naasd", "poke"], isNaN));
+console.log(some(["red", 2, "two"], isNaN));
+console.log(some([2,3,4], isNaN));
+*/
