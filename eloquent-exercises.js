@@ -138,11 +138,15 @@ var revInPlaceVar = function reverseArrayInPlace(array){
   for(var i = array.length-2; i>=0; i--){
     array.push(array[i]);
   }
-  return array.slice(origLength-1, array.length);
+  for(var j = 0; j < origLength-1; j++){
+    array.shift();
+  }
+  return array;
 }
-
-console.log(revInPlaceVar(["d","o","g"]));
-*/
+var arr = ["d","o","g"];
+console.log(revInPlaceVar(arr));
+console.log(arr);
+/*
 
 //ch. 4 list data structure exercise
 /*
@@ -230,3 +234,44 @@ var pencil = {color: {red: "nice", blue: "brown"}, make: 2006};
 console.log(deepComp(prius, pencil));
 */
 
+//ch. 5 flattening exercise
+/*
+var arrays = [["A","B"],["A","B","C"],["2","3","4","5"]];
+console.log(arrays.reduce(function(a, b){
+  return a.concat(b);
+}));
+*/
+
+var ancestry = JSON.parse(require("./ancestry.js"));
+
+//ch. 5 mother-child age difference
+/*
+var byName = {};
+//this call to forEach assigns properties
+//to the object "byName" for each person
+//in ancestry based on each person's name
+//then the person's name has their attributes.
+ancestry.forEach(function(person) {
+  byName[person.name] = person;
+});
+
+var motherChildAncestry = ancestry.filter(function(person){
+    if(byName[person.mother] != undefined){
+      return true;
+    }
+    else {
+      return false;
+    }
+  });
+
+function averageAgeDiff(array){
+  function difference(a, b){
+    console.log(a);
+    console.log(b);
+    console.log("------------------");
+    return a + (byName[b.name].born - byName[b.mother].born);
+  }
+  return array.reduce(difference, 0) / array.length;
+}
+console.log(averageAgeDiff(motherChildAncestry));
+*/
